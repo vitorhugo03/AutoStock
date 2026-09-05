@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AutoStock - Gestão de Veículos</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-car"></i>
+            <span>AutoStock</span>
+        </div>
+
+        <nav>
+            <a href="#dashboard" class="active">
+                <i class="fa-solid fa-chart-line"></i>
+                Dashboard
+            </a>
+
+            <a href="#veiculos">
+                <i class="fa-solid fa-car-side"></i>
+                Veículos
+            </a>
+
+            <a href="#financeiro">
+                <i class="fa-solid fa-wallet"></i>
+                Financeiro
+            </a>
+
+            <a href="#vendas">
+                <i class="fa-solid fa-handshake"></i>
+                Vendas
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <p>Vitor Hugo</p>
+        </div>
+
+    </aside>
+
+
+    <main class="content">
+
+        <!-- HEADER -->
+
+        <header class="page-header">
+
+            <div>
+                <span class="subtitle">Visão geral</span>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="user">
+                <div class="user-icon">
+                    VH
+                </div>
+
+                <div>
+                    <strong>Vitor Hugo</strong>
+                    <span>Administrador</span>
+                </div>
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD -->
+
+        <section id="dashboard">
+
+            <div class="dashboard-cards">
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        <i class="fa-solid fa-car"></i>
+                    </div>
+
+                    <div>
+                        <span>Veículos em estoque</span>
+                        <strong id="totalEstoque">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        <i class="fa-solid fa-money-bill-trend-up"></i>
+                    </div>
+
+                    <div>
+                        <span>Valor do estoque</span>
+                        <strong id="valorEstoque">R$ 0,00</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+
+                    <div>
+                        <span>Em negociação</span>
+                        <strong id="totalNegociacao">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <div>
+                        <span>Lucro potencial</span>
+                        <strong id="lucroPotencial">R$ 0,00</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- VEÍCULOS -->
+
+        <section id="veiculos" class="vehicles-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="subtitle">Gerenciamento</span>
+                    <h2>Veículos</h2>
+                </div>
+
+                <button class="btn-primary" id="btnAdicionar">
+                    <i class="fa-solid fa-plus"></i>
+                    Adicionar veículo
+                </button>
+
+            </div>
+
+
+            <!-- FILTROS -->
+
+            <div class="filters">
+
+                <div class="search-box">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="buscarVeiculo"
+                        placeholder="Buscar veículo..."
+                    >
+
+                </div>
+
+
+                <select id="filtroStatus">
+
+                    <option value="Todos">
+                        Todos os status
+                    </option>
+
+                    <option value="Disponível">
+                        Disponível
+                    </option>
+
+                    <option value="Negociação">
+                        Negociação
+                    </option>
+
+                    <option value="Vendido">
+                        Vendido
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- TABELA -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Veículo</th>
+                            <th>Ano</th>
+                            <th>KM</th>
+                            <th>Custo</th>
+                            <th>Venda</th>
+                            <th>Lucro</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tabelaVeiculos"></tbody>
+
+                </table>
+
+
+                <div id="mensagemVazia" class="empty-message">
+
+                    <i class="fa-solid fa-car"></i>
+
+                    <h3>Nenhum veículo encontrado</h3>
+
+                    <p>
+                        Cadastre um veículo ou altere os filtros.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FINANCEIRO -->
+
+        <section id="financeiro" class="placeholder-section">
+
+            <i class="fa-solid fa-wallet"></i>
+
+            <div>
+                <h2>Financeiro</h2>
+
+                <p>
+                    O controle financeiro será desenvolvido nas próximas versões.
+                </p>
+            </div>
+
+        </section>
+
+
+        <!-- VENDAS -->
+
+        <section id="vendas" class="placeholder-section">
+
+            <i class="fa-solid fa-handshake"></i>
+
+            <div>
+                <h2>Vendas</h2>
+
+                <p>
+                    O histórico de vendas será desenvolvido nas próximas versões.
+                </p>
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                Desenvolvido por <strong>Vitor Hugo Dias Pereira</strong>
+            </p>
+
+        </footer>
+
+    </main>
+
+
+    <!-- MODAL -->
+
+    <div class="modal-overlay" id="modal">
+
+        <div class="modal">
+
+            <div class="modal-header">
+
+                <div>
+                    <span class="subtitle">AutoStock</span>
+
+                    <h2 id="tituloModal">
+                        Adicionar veículo
+                    </h2>
+                </div>
+
+                <button class="close-modal" id="fecharModal">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+
+            </div>
+
+
+            <form id="formVeiculo">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="nome">
+                            Veículo
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nome"
+                            placeholder="Ex: Honda Civic LXR"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="ano">
+                            Ano
+                        </label>
+
+                        <input
+                            type="number"
+                            id="ano"
+                            placeholder="Ex: 2014"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="km">
+                            Quilometragem
+                        </label>
+
+                        <input
+                            type="number"
+                            id="km"
+                            placeholder="Ex: 140000"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="compra">
+                            Preço de compra
+                        </label>
+
+                        <input
+                            type="number"
+                            id="compra"
+                            step="0.01"
+                            placeholder="R$ 0,00"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="despesas">
+                            Despesas
+                        </label>
+
+                        <input
+                            type="number"
+                            id="despesas"
+                            step="0.01"
+                            placeholder="R$ 0,00"
+                            value="0"
+                        >
+
+                        <small>
+                            Manutenção, documentação, pneus etc.
+                        </small>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="venda">
+                            Preço de venda
+                        </label>
+
+                        <input
+                            type="number"
+                            id="venda"
+                            step="0.01"
+                            placeholder="R$ 0,00"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="profit-preview">
+
+                    <div>
+                        <span>Custo total</span>
+                        <strong id="previewCusto">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Lucro estimado</span>
+                        <strong id="previewLucro">
+                            R$ 0,00
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="modal-actions">
+
+                    <button
+                        type="button"
+                        class="btn-secondary"
+                        id="cancelarModal"
+                    >
+                        Cancelar
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        <i class="fa-solid fa-check"></i>
+                        Salvar veículo
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
